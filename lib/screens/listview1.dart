@@ -12,7 +12,11 @@ class ListView1Screen extends StatelessWidget {
         for (var item in lista)
           ListTile(
             title: Text(item),
+            trailing: const Icon(Icons.arrow_forward_ios),
           ),
+        Divider(
+          color: Colors.black,
+        ),
       ]),
     );
   }
