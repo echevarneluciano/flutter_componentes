@@ -7,7 +7,9 @@ class ListView1Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('ListView1AppBar'), centerTitle: true),
+      appBar: AppBar(
+        title: const Text('ListView1AppBar'),
+      ),
       body: ListView(children: [
         for (var item in lista)
           ListTile(
