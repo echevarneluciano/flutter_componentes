@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_componentes/themes/app_themes.dart';
 
 class CustomCard2 extends StatelessWidget {
-  const CustomCard2({super.key});
+  const CustomCard2({super.key, required this.imgUrl, this.tNom});
+  final String imgUrl;
+  final String? tNom;
 
   @override
   Widget build(BuildContext context) {
@@ -13,18 +15,22 @@ class CustomCard2 extends StatelessWidget {
         elevation: 10,
         child: Column(
           children: [
-            const FadeInImage(
-              placeholder: AssetImage('jar-loading.gif'),
-              image: NetworkImage('https://picsum.photos/250?image=9'),
+            FadeInImage(
+              placeholder: const AssetImage('jar-loading.gif'),
+              image: NetworkImage(imgUrl),
               width: double.infinity,
               height: 230,
               fit: BoxFit.cover,
-              fadeInDuration: Duration(milliseconds: 300),
+              fadeInDuration: const Duration(milliseconds: 300),
             ),
-            Container(
-                alignment: AlignmentDirectional.centerEnd,
-                padding: const EdgeInsets.only(right: 20, top: 10, bottom: 10),
-                child: const Text('Computadora')),
+            if (tNom != null)
+              Container(
+                  alignment: AlignmentDirectional.centerEnd,
+                  padding:
+                      const EdgeInsets.only(right: 20, top: 10, bottom: 10),
+                  child: Text(
+                    tNom!,
+                  )),
           ],
         ));
   }
