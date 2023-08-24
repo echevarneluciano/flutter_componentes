@@ -35,6 +35,18 @@ class AppRoutes {
       name: 'Tarjetas',
       icon: Icons.credit_card,
       screen: const CardScreen(),
+    ),
+    MenuOption(
+      route: 'avatar',
+      name: 'Avatar',
+      icon: Icons.supervised_user_circle_outlined,
+      screen: const AvatarScreen(),
+    ),
+    MenuOption(
+      route: 'animated',
+      name: 'Animated',
+      icon: Icons.play_circle_outline,
+      screen: const AnimatedScreen(),
     )
   ];
 
