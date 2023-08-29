@@ -22,7 +22,7 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
           random.nextInt(255), random.nextInt(255), random.nextInt(255), 1);
       _width = random.nextInt(300).toDouble() + 70;
       _height = random.nextInt(300).toDouble() + 70;
-      _borderRadius = BorderRadius.circular(80);
+      _borderRadius = BorderRadius.circular(random.nextInt(100).toDouble());
     });
   }
 
@@ -33,7 +33,9 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
           title: const Text('AnimatedScreen'),
         ),
         body: Center(
-          child: Container(
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.easeOutCubic,
             width: _width,
             height: _height,
             decoration: BoxDecoration(
