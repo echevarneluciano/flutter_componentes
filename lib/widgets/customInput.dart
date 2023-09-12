@@ -4,20 +4,23 @@ class CustomInput extends StatelessWidget {
   final String? labelText;
   final String? helperText;
   final String? hintText;
-  final IconData? icon;
   final IconData? suffixIcon;
   final TextInputType? keyboardType;
   final bool? obscureText;
+
+  final String formProperty;
+  final Map<String, String> formValues;
 
   const CustomInput({
     super.key,
     this.labelText,
     this.helperText,
     this.hintText,
-    this.icon,
     this.suffixIcon,
     this.keyboardType,
     this.obscureText,
+    required this.formProperty,
+    required this.formValues,
   });
 
   @override
@@ -29,7 +32,7 @@ class CustomInput extends StatelessWidget {
         autofocus: true,
         initialValue: '',
         textCapitalization: TextCapitalization.words,
-        onChanged: (value) => print(value),
+        onChanged: (value) => {formValues[formProperty] = value},
         validator: (value) {
           if (value == null) {
             return 'Ingrese un valor';
@@ -42,7 +45,6 @@ class CustomInput extends StatelessWidget {
           hintText: hintText,
           helperText: helperText,
           suffixIcon: suffixIcon == null ? null : Icon(suffixIcon),
-          icon: icon == null ? null : Icon(icon),
         ),
       )
     ]);

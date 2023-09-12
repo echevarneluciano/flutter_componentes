@@ -25,28 +25,51 @@ class InputsScreen extends StatelessWidget {
             key: myFormKey,
             child: Column(
               children: [
-                const CustomInput(
+                CustomInput(
                   labelText: 'Nombre',
                   hintText: 'Ingrese su nombre',
-                  icon: Icons.account_circle,
                   suffixIcon: Icons.keyboard_arrow_right,
+                  formProperty: 'first_name',
+                  formValues: formValues,
                 ),
                 const SizedBox(height: 20),
-                const CustomInput(
+                CustomInput(
                   labelText: 'Correo',
                   hintText: 'Ingrese su correo',
-                  icon: Icons.email,
                   suffixIcon: Icons.keyboard_arrow_right,
                   keyboardType: TextInputType.emailAddress,
+                  formProperty: 'last_name',
+                  formValues: formValues,
                 ),
                 const SizedBox(height: 20),
-                const CustomInput(
+                CustomInput(
                   labelText: 'Contraseña',
                   hintText: 'Ingrese su contraseña',
-                  icon: Icons.lock,
                   suffixIcon: Icons.keyboard_arrow_right,
                   obscureText: true,
+                  formProperty: 'email',
+                  formValues: formValues,
                 ),
+                const SizedBox(height: 20),
+                DropdownButtonFormField(
+                    items: const [
+                      DropdownMenuItem<String>(
+                        value: 'Admin',
+                        child: Text('Admin'),
+                      ),
+                      DropdownMenuItem<String>(
+                        value: 'Superuser',
+                        child: Text('Superuser'),
+                      ),
+                      DropdownMenuItem<String>(
+                        value: 'Developer',
+                        child: Text('Developer'),
+                      )
+                    ],
+                    onChanged: (value) {
+                      print(value);
+                      formValues['role'] = value ?? 'Admin';
+                    }),
                 const SizedBox(height: 20),
                 ElevatedButton(
                     onPressed: () {
