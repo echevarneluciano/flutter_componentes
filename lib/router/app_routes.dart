@@ -53,6 +53,12 @@ class AppRoutes {
       name: 'Slider',
       icon: Icons.slideshow,
       screen: const SliderScreen(),
+    ),
+    MenuOption(
+      route: 'listviewbuilder',
+      name: 'ListviewBuilder',
+      icon: Icons.list,
+      screen: const ListviewBuilderScreen(),
     )
   ];
 
